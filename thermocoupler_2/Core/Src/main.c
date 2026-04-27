@@ -91,7 +91,7 @@ extern SPI_HandleTypeDef hspi1;
 #define CS_HIGH() HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET)
 
 
-// LES FLERE BYTES I ÉN SPI TRANSFER
+// LES FLERE BYTES I EN SPI TRANSFER
 void SPI_ReadBytes(uint8_t startReg, uint8_t *buf, uint16_t len)
 {
     uint8_t addr = startReg & 0x7F;
