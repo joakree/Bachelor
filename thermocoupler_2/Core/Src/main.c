@@ -209,24 +209,6 @@ int main(void)
 
   while (1)
   {
-      uint8_t fault;
-      SPI_ReadBytes(0x0F, &fault, 1);
-
-      float tc  = readThermocouple();
-      float cj  = readColdJunction();
-      float pcb = TMP461_ReadLocal();    // planned returns 0.0f until implemented
-
-      //Prints thermocouple and cold junction temps. Prints fault errors if there are any for prototyping
-      printf("%lu,%.3f,%.3f,%.3f,0x%02X\r\n",
-             (unsigned long)HAL_GetTick(), tc, cj, pcb, fault);
-
-      /* Final implementation: transmit over CAN */
-      /* CAN_Node_Transmit(tc, cj, pcb, fault); */
-
-      HAL_Delay(1000);
-  }
-  while (1)
-  {
     /* USER CODE END WHILE */
 	  //Checks for faults
 	   uint8_t fault;
